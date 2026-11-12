@@ -1,0 +1,911 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #f1f5f9;
+  background: #0b1220;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg-main: #0b1220;
+  --bg-card: #142238;
+  --bg-elevated: #1b2d46;
+  --accent: #1689e8;
+  --accent-light: #38bdf8;
+  --text-main: #f1f5f9;
+  --text-muted: #a8b7ca;
+  --border-color: #263b55;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+
+.navbar {
+  height: 75px;
+  padding: 0 8%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7254e8;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #656579;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a.active {
+  color: #7254e8;
+}
+
+.page-container {
+  width: 84%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.hero {
+  padding: 65px 55px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #7254e8, #a17bf5);
+  color: white;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  line-height: 1.7;
+}
+
+.content-section {
+  margin-top: 45px;
+}
+
+.content-section h2 {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .page-container {
+    width: 90%;
+  }
+
+  .hero {
+    padding: 40px 25px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+.section-subtitle {
+  color: #77778a;
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.exercise-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px);
+}
+
+.exercise-image,
+.exercise-placeholder {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.exercise-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee9ff;
+  font-size: 55px;
+}
+
+.exercise-info {
+  padding: 20px;
+}
+
+.exercise-info h3 {
+  color: #29243d;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.exercise-info p {
+  color: #77778a;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.exercise-category {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #eee9ff;
+  color: #7254e8;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-message {
+  padding: 30px 0;
+  color: #7254e8;
+}
+
+.error-message {
+  padding: 20px;
+  background: #fff0f0;
+  border-radius: 12px;
+  color: #c0392b;
+}
+
+.error-message button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #7254e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .exercise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .exercise-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid #e5e1f2;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  color: #7254e8;
+}
+
+.search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #29243d;
+  background: transparent;
+}
+
+.results-count {
+  color: #77778a;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.filter-container {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  border: 1px solid #e9e5f5;
+}
+
+.filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #7254e8;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-controls select {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px;
+  border: 1px solid #e5e1f2;
+  border-radius: 9px;
+  background: #faf9ff;
+  color: #29243d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.clear-filters {
+  padding: 12px 18px;
+  background: #eee9ff;
+  color: #7254e8;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clear-filters:hover {
+  background: #ded5ff;
+}
+
+@media (max-width: 550px) {
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .filter-controls select,
+  .clear-filters {
+    width: 100%;
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.pagination button {
+  padding: 11px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #7254e8;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #5d40ce;
+}
+
+.pagination button:disabled {
+  background: #d8d3e8;
+  color: #898397;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #656579;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* Favorite button styling */
+.exercise-card-image-wrapper {
+  position: relative;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #77778a;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button.favorited {
+  color: #e84375;
+}
+/* Exercise Details Page */
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #7654e8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #e84375;
+}
+
+.details-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 35px;
+  align-items: start;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.details-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #eee9ff;
+}
+
+.details-image {
+  width: 100%;
+  min-height: 300px;
+  max-height: 450px;
+  object-fit: contain;
+  display: block;
+}
+
+.details-placeholder {
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  background: #eee9ff;
+}
+
+.details-info h1 {
+  color: #29243d;
+  font-size: 30px;
+  margin: 0 0 25px;
+}
+
+.details-info h2 {
+  color: #7654e8;
+  font-size: 18px;
+  margin: 25px 0 10px;
+}
+
+.details-info p {
+  color: #77778a;
+  line-height: 1.8;
+}
+
+.details-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.details-tags span {
+  background: #eee9ff;
+  color: #7654e8;
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .details-info h1 {
+    font-size: 25px;
+  }
+}
+
+/* Premium Dark Navbar */
+
+.navbar {
+  background: #101c30;
+  border-bottom: 1px solid #263b55;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  color: #38bdf8;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: #7dd3fc;
+}
+
+.nav-links a {
+  color: #a8b7ca;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #38bdf8;
+}
+
+/* Premium Dark Hero Section */
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #142b49 0%,
+    #123d68 55%,
+    #075985 100%
+  );
+  border: 1px solid #24527a;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  color: #d3e6f7;
+  max-width: 650px;
+}
+
+.hero .eyebrow {
+  color: #7dd3fc;
+}
+
+/* Premium Dark Exercise Cards */
+
+.exercise-card {
+  background: #142238;
+  border: 1px solid #263b55;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-6px);
+  border-color: #1689e8;
+  box-shadow: 0 12px 30px rgba(22, 137, 232, 0.12);
+}
+
+.exercise-info h3 {
+  color: #f1f5f9;
+}
+
+.exercise-info h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.exercise-info h3 a:hover {
+  color: #38bdf8;
+}
+
+.exercise-info p {
+  color: #a8b7ca;
+}
+
+.exercise-category {
+  background: #153b5b;
+  color: #7dd3fc;
+  border: 1px solid #24527a;
+}
+
+.exercise-placeholder {
+  background: #1b304a;
+  color: #7dd3fc;
+}
+
+/* Premium Dark Search and Filters */
+
+.search-container {
+  background: #142238;
+  border: 1px solid #263b55;
+  color: #38bdf8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-container input {
+  color: #f1f5f9;
+}
+
+.search-container input::placeholder {
+  color: #8295ad;
+}
+
+.filter-container {
+  background: #142238;
+  border: 1px solid #263b55;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.filter-heading {
+  color: #38bdf8;
+}
+
+.filter-controls select {
+  background: #1b2d46;
+  border: 1px solid #354c68;
+  color: #f1f5f9;
+}
+
+.filter-controls select option {
+  background: #142238;
+  color: #f1f5f9;
+}
+
+.clear-filters {
+  background: #153b5b;
+  color: #7dd3fc;
+  border: 1px solid #24527a;
+  transition: background 0.2s ease;
+}
+
+.clear-filters:hover {
+  background: #20547b;
+}
+
+.results-count {
+  color: #a8b7ca;
+}
+
+/* Premium Dark Pagination */
+
+.pagination button {
+  background: #1689e8;
+  color: #ffffff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #0875c9;
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  background: #263b55;
+  color: #8295ad;
+}
+
+.pagination span {
+  color: #a8b7ca;
+}
+
+/* Premium Dark Favorite Buttons */
+
+.favorite-button {
+  background: #142238;
+  color: #a8b7ca;
+  border: 1px solid #354c68;
+}
+
+.favorite-button:hover {
+  background: #1b304a;
+  color: #38bdf8;
+}
+
+.favorite-button.favorited {
+  color: #fb7185;
+}
+
+/* Premium Dark Favorites Page */
+
+.empty-favorites {
+  background: #142238;
+  border: 1px solid #263b55;
+  border-radius: 18px;
+  padding: 55px 25px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.empty-favorites span {
+  font-size: 55px;
+}
+
+.empty-favorites h2 {
+  color: #f1f5f9;
+  margin: 15px 0;
+}
+
+.empty-favorites p {
+  color: #a8b7ca;
+  line-height: 1.7;
+}
+
+.content-section > h1 {
+  color: #f1f5f9;
+}
+
+.section-subtitle {
+  color: #a8b7ca;
+}
+
+/* Premium Dark Exercise Details */
+
+.back-link {
+  color: #38bdf8;
+}
+
+.back-link:hover {
+  color: #7dd3fc;
+}
+
+.details-container {
+  background: #142238;
+  border: 1px solid #263b55;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.details-image-wrapper {
+  background: #1b304a;
+}
+
+.details-placeholder {
+  background: #1b304a;
+  color: #7dd3fc;
+}
+
+.details-info h1 {
+  color: #f1f5f9;
+}
+
+.details-info h2 {
+  color: #38bdf8;
+}
+
+.details-info p {
+  color: #a8b7ca;
+}
+
+.details-tags span {
+  background: #153b5b;
+  color: #7dd3fc;
+  border: 1px solid #24527a;
+}
+
+/* Exercise Details - Improved Text Alignment */
+
+.details-info {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.details-info h1 {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.details-info h2 {
+  width: 100%;
+  text-align: left;
+  margin: 22px 0 10px;
+}
+
+.details-info p {
+  width: 100%;
+  text-align: left;
+  line-height: 1.8;
+  margin-bottom: 5px;
+}
+
+.details-tags {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.details-tags span {
+  text-align: center;
+}
+
+/* FitTrack - Mobile Responsive Improvements */
+
+@media (max-width: 768px) {
+  .page-container {
+    width: 92%;
+    margin: 30px auto;
+  }
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 40px 25px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .exercise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .details-image {
+    min-height: 220px;
+    max-height: 350px;
+  }
+
+  .details-placeholder {
+    min-height: 250px;
+  }
+
+  .details-info h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar {
+    height: 68px;
+  }
+
+  .logo {
+    font-size: 19px;
+    gap: 6px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 35px 20px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .exercise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .filter-controls select,
+  .clear-filters {
+    width: 100%;
+  }
+
+  .pagination {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    padding: 10px 15px;
+  }
+
+  .details-container {
+    padding: 15px;
+  }
+}
+
+/* Short Description Preview on Exercise Cards */
+
+.exercise-info p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+}
