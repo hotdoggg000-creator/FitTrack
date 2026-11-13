@@ -113,6 +113,8 @@ function ExerciseDetails() {
 
           <div className="details-info">
             <h1>{name}</h1>
+            <h2>Exercise Category</h2>
+<p>{exercise.category?.name || "General Exercise"}</p>
 
             <h2>Exercise Description</h2>
             <p>{description}</p>
