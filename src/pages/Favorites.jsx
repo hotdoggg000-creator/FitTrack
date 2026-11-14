@@ -18,6 +18,11 @@ function Favorites({ favorites, toggleFavorite }) {
               Browse the exercises and click the heart button
               to save your favorites.
             </p>
+            <div>
+              <h1>
+                clcik the heart <button></button>
+              </h1>
+            </div>
           </div>
         ) : (
           <>
