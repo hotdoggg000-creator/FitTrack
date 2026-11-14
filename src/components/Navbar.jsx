@@ -26,3 +26,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
+<div class="notification-container">
+  <div class="notification" id="notification"></div>
+</div>
